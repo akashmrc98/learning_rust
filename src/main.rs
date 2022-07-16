@@ -1,36 +1,17 @@
-use rand::Rng;
-use std::cmp::Ordering;
-use std::io;
+// #[path = "./topics/1_intro.rs"] mod intro;
+// #[path = "./topics/2_vars.rs"] mod vars;
+// #[path = "./topics/3_data_types.rs"] mod data_types;
+// #[path = "./topics/4_functions.rs"] mod functions;
+// #[path = "./topics/5_control_flow.rs"]
+// mod control_flow;
+#[path = "./topics/6_owner_ship.rs"]
+mod owner_ship;
 
 fn main() {
-    println!("Guess the number!");
-
-    println!("Please input your guess.");
-
-    let mut guess = String::new();
-
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
-
-    let mut count: i32 = 0;
-    println!("You guessed: {}", &guess);
-    loop {
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-
-        let secret_number = rand::thread_rng().gen_range(1..=10);
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => {
-                println!("You win!, {}", &secret_number);
-                break;
-            }
-        };
-        count += 1;
-        println!("no of tries {}", &count);
-    }
+    // intro::learn()
+    // vars::learn();
+    // data_types::learn();
+    // functions::learn();
+    // control_flow::learn();
+    owner_ship::learn();
 }
